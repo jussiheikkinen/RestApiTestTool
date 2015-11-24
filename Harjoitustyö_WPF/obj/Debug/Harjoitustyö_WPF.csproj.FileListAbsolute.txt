@@ -1,0 +1,16 @@
+E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\bin\Debug\Harjoitustyö_WPF.exe.config
+E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\bin\Debug\Harjoitustyö_WPF.exe
+E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\bin\Debug\Harjoitustyö_WPF.pdb
+E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\bin\Debug\Newtonsoft.Json.dll
+E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\bin\Debug\Newtonsoft.Json.xml
+E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\obj\Debug\MainWindow.g.cs
+E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\obj\Debug\App.g.cs
+E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\obj\Debug\Harjoitustyö_WPF_MarkupCompile.cache
+E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\obj\Debug\Harjoitustyö_WPF_MarkupCompile.lref
+E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\obj\Debug\MainWindow.baml
+E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\obj\Debug\Harjoitustyö_WPF.g.resources
+E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\obj\Debug\Harjoitustyö_WPF.Properties.Resources.resources
+E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\obj\Debug\Harjoitustyö_WPF.csproj.GenerateResource.Cache
+E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\obj\Debug\Harjoitustyö_WPF.exe
+E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\obj\Debug\Harjoitustyö_WPF.pdb
+E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\obj\Debug\Harjoitustyö_WPF.csprojResolveAssemblyReference.cache
