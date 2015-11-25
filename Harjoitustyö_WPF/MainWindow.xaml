@@ -15,6 +15,7 @@
         <RadioButton x:Name="rbGET" Content="GET" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" GroupName="Metodit"/>
         <RadioButton x:Name="rbPOST" Content="POST" HorizontalAlignment="Left" Margin="79,38,0,0" VerticalAlignment="Top" GroupName="Metodit"/>
         <RadioButton x:Name="rbPUT" Content="PUT" HorizontalAlignment="Left" Margin="154,38,0,0" VerticalAlignment="Top" GroupName="Metodit"/>
+        <RadioButton x:Name="rbDELETE" Content="DELETE" HorizontalAlignment="Left" Margin="226,38,0,0" VerticalAlignment="Top" GroupName="Metodit"/>
         <Button x:Name="btnSend" Content="Lähetä" HorizontalAlignment="Left" Margin="23,38,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="button_Click"/>
         <DataGrid x:Name="dgView" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.167,-16.231" Height="439" Width="515" Grid.ColumnSpan="2"/>
         <Label x:Name="label" Content="Lisää avain, arvo pareja" Grid.Column="1" HorizontalAlignment="Left" Margin="112,10,0,0" VerticalAlignment="Top"/>
@@ -37,6 +38,6 @@
         <Label x:Name="label2" Content="Arvo" Grid.Column="1" HorizontalAlignment="Left" Margin="237,68,0,0" VerticalAlignment="Top"/>
         <StatusBar HorizontalAlignment="Left" Height="39" Margin="0,517,0,0" VerticalAlignment="Top" Width="797" Grid.ColumnSpan="2">
             <Label x:Name="lblStatus" Content="ready" Width="797" Height="29"/>
-        </StatusBar>
+        </StatusBar>        
     </Grid>
 </Window>

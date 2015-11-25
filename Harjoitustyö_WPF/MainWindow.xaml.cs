@@ -61,9 +61,20 @@ namespace Harjoitustyö_WPF
             if (rbPUT.IsChecked == true)
             {
                 try
+                {                    
+                    dgView.ItemsSource = handler.putData(address,postParams()).DefaultView;
+                }
+                catch (Exception ex)
                 {
-                    byte[] data = null;//System.Text.Encoding.UTF8.GetBytes(address);
-                    dgView.ItemsSource = handler.putData(address, data).DefaultView;
+
+                    changeStatus(ex);
+                }
+            }
+
+            if (rbDELETE.IsChecked == true) {
+                try
+                {
+                    dgView.ItemsSource = handler.deleteData(address, postParams()).DefaultView;
                 }
                 catch (Exception ex)
                 {
@@ -72,7 +83,6 @@ namespace Harjoitustyö_WPF
                 }
             }
         }
-
         
         private void btnNewValue_Click(object sender, RoutedEventArgs e)
         {
