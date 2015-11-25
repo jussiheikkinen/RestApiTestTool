@@ -15,11 +15,11 @@ namespace Harjoitustyö_WPF
 {
     public class ApiCallHandler
     {
-        private DataTable dt;
+        private DataTable dt = new DataTable();
 
         //Suoritetaan GET tyyppiset http kutsut
         public DataTable getData(String linkki){
-            DataTable dt = new DataTable();
+                        
             dt.Columns.Add("Data", typeof(string));
             WebClient client = new WebClient();
            
@@ -38,13 +38,9 @@ namespace Harjoitustyö_WPF
         {            
             WebClient client = new WebClient();
             NameValueCollection collection = new NameValueCollection();
-            DataTable dt = new DataTable();
-
+            
             foreach (var item in list) {
-                if (!String.IsNullOrWhiteSpace(item.Key))
-                {
-                    collection.Add(item.Key, item.Value);
-                }
+                if (!String.IsNullOrWhiteSpace(item.Key)) collection.Add(item.Key, item.Value);                
             }
             byte[] response = client.UploadValues(linkki, collection);
             String result = System.Text.Encoding.UTF8.GetString(response);
@@ -54,11 +50,16 @@ namespace Harjoitustyö_WPF
             return dt;
         }
 
-        public DataTable putData(String linkki, Byte[] data ){
-            DataTable dt = new DataTable();            
-
+        public DataTable putData(String linkki, List<KeyValuePair<String, String>> list)
+        {            
+            String keyvalues = "";
+            foreach (var item in list)
+            {
+                if (!String.IsNullOrWhiteSpace(item.Key)) keyvalues += "&" + item.Key + item.Value;                
+            }
+            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(keyvalues.Substring(1));
             WebClient client = new WebClient();
-            byte[] response = client.UploadData(linkki, "PUT", data);
+            byte[] response = client.UploadData(linkki, "PUT", byteArray);
             String result = System.Text.Encoding.UTF8.GetString(response);
 
             dt.Columns.Add("PUT response", typeof(string));
@@ -66,6 +67,21 @@ namespace Harjoitustyö_WPF
             return dt;
         }
 
+        public DataTable deleteData(String linkki, List<KeyValuePair<String, String>> list) {
+            String keyvalues = "";
+            foreach (var item in list)
+            {
+                if (!String.IsNullOrWhiteSpace(item.Key)) keyvalues += "&" + item.Key + "=" + item.Value;
+            }
+            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(keyvalues.Substring(1));
+            WebClient client = new WebClient();
+            byte[] response = client.UploadData(linkki, "DELETE", byteArray);
+            String result = System.Text.Encoding.UTF8.GetString(response);
 
+            dt.Columns.Add("PUT response", typeof(string));
+            dt.Rows.Add(result);
+            return dt;
+        }
+        
     }
 }
