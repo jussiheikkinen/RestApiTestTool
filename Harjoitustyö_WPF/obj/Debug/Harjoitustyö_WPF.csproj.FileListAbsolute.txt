@@ -14,3 +14,6 @@ E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\obj\Debug\Harjoitustyö_WPF.csproj.
 E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\obj\Debug\Harjoitustyö_WPF.exe
 E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\obj\Debug\Harjoitustyö_WPF.pdb
 E:\H4214\Harjoitustyö_WPF\Harjoitustyö_WPF\obj\Debug\Harjoitustyö_WPF.csprojResolveAssemblyReference.cache
+Z:\dotnot\RestApiTestTool\Harjoitustyö_WPF\bin\Debug\Harjoitustyö_WPF.exe.config
+Z:\dotnot\RestApiTestTool\Harjoitustyö_WPF\obj\Debug\Harjoitustyö_WPF.exe
+Z:\dotnot\RestApiTestTool\Harjoitustyö_WPF\obj\Debug\Harjoitustyö_WPF.pdb
