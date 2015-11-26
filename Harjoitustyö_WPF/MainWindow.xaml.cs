@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,7 +39,7 @@ namespace Harjoitustyö_WPF
             {
                 try
                 {
-                    dgView.ItemsSource = handler.getData(getParams()).DefaultView;
+                    txtResponse.Text = JValue.Parse((handler.getData(getParams()))).ToString(Formatting.Indented);
                 }
                 catch (Exception ex)
                 {
@@ -49,7 +51,7 @@ namespace Harjoitustyö_WPF
             {
                 try
                 {
-                    dgView.ItemsSource = handler.postData(address, postParams()).DefaultView;
+                    txtResponse.Text = handler.postData(address, postParams());
                 }
                 catch (Exception ex)
                 {
@@ -61,8 +63,8 @@ namespace Harjoitustyö_WPF
             if (rbPUT.IsChecked == true)
             {
                 try
-                {                    
-                    dgView.ItemsSource = handler.putData(address,postParams()).DefaultView;
+                {
+                    txtResponse.Text = handler.putData(address,postParams());
                 }
                 catch (Exception ex)
                 {
@@ -74,7 +76,7 @@ namespace Harjoitustyö_WPF
             if (rbDELETE.IsChecked == true) {
                 try
                 {
-                    dgView.ItemsSource = handler.deleteData(address, postParams()).DefaultView;
+                    txtResponse.Text = handler.deleteData(address, postParams());
                 }
                 catch (Exception ex)
                 {
@@ -86,15 +88,15 @@ namespace Harjoitustyö_WPF
         
         private void btnNewValue_Click(object sender, RoutedEventArgs e)
         {
-             /*       
+               /*    
              TextBox txtKey = new TextBox();           
-             txtKey.PreviewKeyUp += new KeyEventHandler(uusiKey);
+             txtKey.PreviewKeyUp += new KeyEventHandler(btnNewValue_Click);
              txtKey.Text = "key";
              TextBox txtVal = new TextBox();
              txtVal.Text = "val";
              keyStackPanel.Children.Add(txtKey);
              valStackPanel.Children.Add(txtVal);          
-                     */
+            */         
         }
 
         protected String getParams() {
@@ -112,14 +114,7 @@ namespace Harjoitustyö_WPF
                 {
                     if (!String.IsNullOrWhiteSpace(item.Key))
                     {
-                        if (i == 0)
-                        {
-                            address += "?" + item.Key + "=" + item.Value;
-                        }
-                        else
-                        {
-                            address += "&" + item.Key + "=" + item.Value;
-                        }
+                        address += (i == 0 ? "?" : "&") + item.Key + "=" + item.Value;    
                     }
                     i++;
                 } 
@@ -138,6 +133,9 @@ namespace Harjoitustyö_WPF
             return list;
         }
 
+
+
+        //Status barin ilmoitukset
         public void changeStatus(Exception e) {
             lblStatus.Background = Brushes.Red;
             lblStatus.Content = e;
