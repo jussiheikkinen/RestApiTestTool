@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -12,24 +13,28 @@ namespace ASP
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            Page.ClientScript.RegisterClientScriptInclude("skriptit", "Scripts/skriptit.js");
+
         }
 
-        protected void addKeyValuePair_Click(object sender, EventArgs e)
+        protected void callApi_Click(object sender, EventArgs e)
         {
-            TableRow row = new TableRow();
-            TableCell keyCell = new TableCell(), valueCell = new TableCell();
-            TextBox key = new TextBox(), value = new TextBox();
 
-            key.ID = "key[]";
-            value.ID = "value[]";
+            string uri = Request.Form["uri"], method = Request.Form["method"];
 
-            keyCell.Controls.Add(key);
-            valueCell.Controls.Add(value);
+            String[] keys = Request.Form["key[]"].Split(','), values = Request.Form["value[]"].Split(',');
+            List<KeyValuePair<String,String>> param = new List<KeyValuePair<String,String>>();
+            for(int i = 0; i < keys.Length; i++)
+            {
+                param.Add(new KeyValuePair<string, string>(keys[i], values[i]));
+            }
 
-            row.Cells.Add(keyCell);
-            row.Cells.Add(valueCell);
+            String query = string.Join("&", param.Select(kvp => string.Format("{0}={1}", kvp.Key, kvp.Value)));
 
-            keyValuePairTable.Rows.Add(row);
+            System.Diagnostics.Debug.WriteLine("uri=" + uri);
+            System.Diagnostics.Debug.WriteLine("query=" + query);
+            System.Diagnostics.Debug.WriteLine("method=" + method);
+
         }
     }
 }

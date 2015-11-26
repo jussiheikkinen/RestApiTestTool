@@ -13,24 +13,6 @@ namespace ASP {
     public partial class _Default {
         
         /// <summary>
-        /// form control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form;
-        
-        /// <summary>
-        /// keyValuePairTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table keyValuePairTable;
-        
-        /// <summary>
         /// addKeyValuePair control.
         /// </summary>
         /// <remarks>
@@ -40,13 +22,13 @@ namespace ASP {
         protected global::System.Web.UI.WebControls.Button addKeyValuePair;
         
         /// <summary>
-        /// RadioButtonList1 control.
+        /// method control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
+        protected global::System.Web.UI.WebControls.RadioButtonList method;
         
         /// <summary>
         /// callApi control.

@@ -8,21 +8,12 @@
     padding-right: 15px;
 }
 
-input, select, textarea {
-    max-width: 280px;
-    width: 324px;
+#requestUri { display: block; }
+
+#result {
+    display: block; width: 100%; height: 100%;
 }
 
 .methodList { list-style:none; margin: 0; padding: 0; }
 .methodList.horizontal li { display: inline; }
 .methodList label { display:inline; }
-
-@media screen and (min-width: 768px) {
-    .jumbotron {
-        margin-top: 20px;
-    }
-
-    .body-content {
-        padding: 0;
-    }
-}
