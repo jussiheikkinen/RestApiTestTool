@@ -6,9 +6,7 @@
         <h4>About API</h4>
         <p>The API is used for our Android app. It uses basic HTTP methods (POST, GET, PUT and DELETE) to create, read, update and delete (CRUD) data from MSSQL database.</p>
         <h4>Endpoints</h4>
-        <dl>
-            <dt><a href="/api/_">/api/_</a></dt><dd>_</dd>
-        </dl>
+        <p><a href="/api/About/Endpoints">Endpoints</a> can be fecthed here.</p>
     </section>
     <section>
         <h4>This tool</h4>
