@@ -17,8 +17,10 @@ namespace Harjoitustyö_WPF
     {   
 
         //Suoritetaan GET tyyppiset http kutsut
-        public String getData(String linkki){   
-            WebClient client = new WebClient();
+        public String getData(String linkki, List<KeyValuePair<String, String>> headers)
+        {   
+            //WebClientin alustus custom headereille
+            WebClient client = alustaClient(headers);
             String data = "";
                 Stream stream = client.OpenRead(linkki);
                 StreamReader reader = new StreamReader(stream);
@@ -31,9 +33,9 @@ namespace Harjoitustyö_WPF
         }
 
         //Suoritetaan POST tyyppiset http kutsut
-        public String postData(String linkki, List<KeyValuePair<String, String>> list)
-        {            
-            WebClient client = new WebClient();
+        public String postData(String linkki, List<KeyValuePair<String, String>> list, List<KeyValuePair<String, String>> headers)
+        {
+            WebClient client = alustaClient(headers);
             NameValueCollection collection = new NameValueCollection();
             
             foreach (var item in list) {
@@ -44,7 +46,7 @@ namespace Harjoitustyö_WPF
             return result;
         }
 
-        public String putData(String linkki, List<KeyValuePair<String, String>> list)
+        public String putData(String linkki, List<KeyValuePair<String, String>> list, List<KeyValuePair<String, String>> headers)
         {            
             String keyvalues = "";
             foreach (var item in list)
@@ -52,24 +54,41 @@ namespace Harjoitustyö_WPF
                 if (!String.IsNullOrWhiteSpace(item.Key)) keyvalues += "&" + item.Key + "=" + item.Value;                
             }
             byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(keyvalues.Substring(1));
-            WebClient client = new WebClient();
+            WebClient client = alustaClient(headers);
             byte[] response = client.UploadData(linkki, "PUT", byteArray);
             String result = System.Text.Encoding.UTF8.GetString(response);            
             return result;
         }
 
-        public String deleteData(String linkki, List<KeyValuePair<String, String>> list) {
+        public String deleteData(String linkki, List<KeyValuePair<String, String>> list, List<KeyValuePair<String, String>> headers) {
             String keyvalues = "";
             foreach (var item in list)
             {
                 if (!String.IsNullOrWhiteSpace(item.Key)) keyvalues += "&" + item.Key + "=" + item.Value;
             }
             byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(keyvalues.Substring(1));
-            WebClient client = new WebClient();
+            WebClient client = alustaClient(headers);
             byte[] response = client.UploadData(linkki, "DELETE", byteArray);
             String result = System.Text.Encoding.UTF8.GetString(response);            
             return result;
         }
+
+
+        //Alustetaan WebClient käyttämään custom http headereita
+        private WebClient alustaClient(List<KeyValuePair<String, String>> headers) {
+
+            WebClient client = new WebClient();
+            
+            foreach (var item in headers)
+            {
+                if (!String.IsNullOrWhiteSpace(item.Key))
+                {                   
+                    client.Headers.Add(item.Key, item.Value);
+                }
+            }
+            return client;
+        }
+
         
     }
 }

@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Harjoitustyö_WPF.exe" size="17336">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Harjoitustyö_WPF.exe" size="18872">
       <assemblyIdentity name="Harjoitustyö_WPF" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>9H1qszsbe/EzduKu3U554lk6yS6ewW5BYtnr69rq0Xg=</dsig:DigestValue>
+        <dsig:DigestValue>oFvnuPAMFKZ4Too3Y6F8S2Bw8IgTMZyNemGuUMlA1Oc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
