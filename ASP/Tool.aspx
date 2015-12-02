@@ -20,7 +20,7 @@
         <fieldset><legend>Response</legend>
             <div class="row">
                 <div class="col-lg-4"><div>Status <span class="label label-success">200 OK</span></div><div>Response size: <span>0b</span></div></div>
-                <div class="col-lg-8"><textarea name="result" class="form-control" id="result" cols="20" rows="10"></textarea></div>
+                <div class="col-lg-8"><asp:TextBox CssClass="form-control" id="result" runat="server" /></div>
             </div>
         </fieldset>
 

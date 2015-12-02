@@ -68,3 +68,4 @@ Z:\dotnot\RestApiTestTool\ASP\bin\Microsoft.AspNet.FriendlyUrls.xml
 Z:\dotnot\RestApiTestTool\ASP\obj\Debug\ASP.csprojResolveAssemblyReference.cache
 Z:\dotnot\RestApiTestTool\ASP\obj\Debug\ASP.dll
 Z:\dotnot\RestApiTestTool\ASP\obj\Debug\ASP.pdb
+Z:\dotnot\RestApiTestTool\ASP\bin\api_test_tool.dll
