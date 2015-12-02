@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Harjoitustyö_WPF;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace ASP
 {
@@ -21,7 +23,7 @@ namespace ASP
         protected void callApi_Click(object sender, EventArgs e)
         {
 
-            string uri = Request.Form["uri"], method = Request.Form["method"];
+            string uri = requestUri.Text.Trim();//Request.Form["uri"];
 
             String[] keys = (Request.Form["key[]"] ?? "").Split(','), values = (Request.Form["value[]"] ?? "").Split(',');
             List<KeyValuePair<String, String>> param = new List<KeyValuePair<String, String>>();
@@ -30,35 +32,44 @@ namespace ASP
                 param.Add(new KeyValuePair<string, string>(keys[i], values[i]));
             }
 
-            List<KeyValuePair<String, String>> headers = new List<KeyValuePair<string, string>>();
-
-            String query = string.Join("&", param.Select(kvp => string.Format("{0}={1}", kvp.Key, kvp.Value)));
+            String[] headerKeys = (Request.Form["headerKey[]"] ?? "").Split(','), headerValues = (Request.Form["headerValue[]"] ?? "").Split(',');
+            List<KeyValuePair<String, String>> headers = new List<KeyValuePair<String, String>>();
+            for (int i = 0; i < headerKeys.Length; i++)
+            {
+                headers.Add(new KeyValuePair<string, string>(headerKeys[i], headerValues[i]));
+            }
 
             ApiCallHandler handler = new ApiCallHandler();
+            string res = "";
+            try {
+                switch (method.Text) {
+                    case "post":
+                        res = handler.postData(uri, param, headers);
+                        break;
 
-            switch (Request.Form["method"]) {
+                    case "get":
+                        String query = string.Join("&", param.Select(kvp => string.Format("{0}={1}", kvp.Key, kvp.Value)));
+                        res = handler.getData(uri + '?' + query, headers);
+                        break;
 
-                case "post":
-                result.Text = handler.postData(uri, param, headers);
-                    break;
+                    case "put":
+                        res = handler.putData(uri, param, headers);
+                        break;
 
-                case "get":
-                    result.Text = handler.getData(uri + '?' + query, headers);
-                    break;
+                    case "delete":
+                        res = handler.deleteData(uri, param, headers);
+                        break;
+                }
 
-                case  "put":
-                    result.Text = handler.putData(uri, param, headers);
-                    break;
+                result.Text = JValue.Parse(res).ToString(Formatting.Indented);
+                //resultStatus.InnerText = 
+                resultSize.InnerText = result.Text.Length + " b";
+            }
+            catch (Exception ex) { result.Text = ex.Message; result.CssClass = "form-control has-error"; }
 
-                case "delete":
-                    result.Text = handler.deleteData(uri, param, headers);
-                    break;
-
-            }          
-
-            System.Diagnostics.Debug.WriteLine("uri=" + uri);
-            System.Diagnostics.Debug.WriteLine("query=" + query);
-            System.Diagnostics.Debug.WriteLine("method=" + method);
+            //System.Diagnostics.Debug.WriteLine("uri=" + uri);
+            //System.Diagnostics.Debug.WriteLine("query=" + query);
+            //System.Diagnostics.Debug.WriteLine("method=" + method);
 
         }
     }

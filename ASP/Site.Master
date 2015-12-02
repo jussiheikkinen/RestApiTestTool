@@ -46,7 +46,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/">REST API Testing tool ASP.NET version</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -60,11 +60,39 @@
             <main>
                 <asp:ContentPlaceHolder ID="MainContent" runat="server" />
             </main>
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> Jussi Heikkinen and Niko Jokipalo</p>
-                <a href="">...</a>
+            <footer class="footer">
+                <p>&copy; <%: DateTime.Now.Year %> <a href="http://tuulari-001-site1.atempurl.com/api/About/Authors">Jussi Heikkinen and Niko Jokipalo</a></p>
             </footer>
         </div>
     </form>
+    <script>
+
+        function addKeyValuePair() {
+
+            var table = $('#keyValuePairTable');
+            var row = $('<div class="input-group">'),
+                keyInput = $('<input type="text" name="key[]" placeholder="key" class="form-control">').appendTo(row),
+                addon = $('<span class="input-group-addon">=</span>').appendTo(row),
+                valueInput = $('<input type="text" name="value[]" placeholder="value" class="form-control">').appendTo(row);
+            table.append(row);
+
+            return false;
+
+        }
+
+        function addHeaderKeyValuePair() {
+
+            var table = $('#headerKeyValuePairTable');
+            var row = $('<div class="input-group">'),
+                keyInput = $('<input type="text" name="headerkey[]" placeholder="Header-Key" class="form-control">').appendTo(row),
+                addon = $('<span class="input-group-addon">=</span>').appendTo(row),
+                valueInput = $('<input type="text" name="headervalue[]" placeholder="Value" class="form-control">').appendTo(row);
+            table.append(row);
+
+            return false;
+
+        }
+
+    </script>
 </body>
 </html>
